@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<
+tml lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الكفايات اللغوية 1-1 | إعداد ناصر الصادق حسين</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f8fafc; }
+        .tab-active { border-bottom: 3px solid #3b82f6; color: #1d4ed8; font-weight: bold; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-white/10 p-2 rounded-xl border border-white/20">
+                    <i class="fa-solid font-bold fa-book-bookmark text-2xl text-amber-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-wide">الكفايات اللغوية (1-1)</h1>
+                    <p class="text-xs text-blue-200">الأول الثانوي - الفصل الدراسي الأول</p>
+                </div>
+            </div>
+            <!-- Designer Badge -->
+            <div class="hidden sm:flex items-center bg-amber-400/20 border border-amber-300/40 px-3 py-1.5 rounded-full text-amber-200 text-xs font-semibold shadow-inner">
+                <i class="fa-solid fa-pen-nib text-amber-300 ml-1.5"></i>
+                <span>إعداد وتصميم: <strong class="text-white font-bold">ناصر الصادق حسين</strong></span>
+            </div>
+        </div>
+        
+        <!-- Mobile Designer Badge -->
+        <div class="sm:hidden bg-blue-950/80 text-center py-1 border-t border-blue-800 text-[11px] text-amber-300">
+            ✨ إعداد وتصميم: <strong class="text-white">ناصر الصادق حسين</strong>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-white text-slate-600 border-b border-slate-200 shadow-sm">
+            <div class="max-w-5xl mx-auto px-2 flex justify-around text-sm font-medium">
+                <button onclick="switchTab('home')" id="tab-home" class="py-3 px-3 tab-active flex items-center gap-2">
+                    <i class="fa-solid fa-house"></i> <span>الرئيسية</span>
+                </button>
+                <button onclick="switchTab('lessons')" id="tab-lessons" class="py-3 px-3 flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap"></i> <span>الدروس</span>
+                </button>
+                <button onclick="switchTab('practice')" id="tab-practice" class="py-3 px-3 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check"></i> <span>التدريبات</span>
+                </button>
+                <button onclick="switchTab('exam')" id="tab-exam" class="py-3 px-3 flex items-center gap-2">
+                    <i class="fa-solid fa-trophy text-amber-500"></i> <span>الاختبار النهائي</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <!-- 1. HOME TAB -->
+        <section id="section-home" class="space-y-6">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-700 via-indigo-800 to-slate-900 text-white p-6 sm:p-8 shadow-xl">
+                <div class="relative z-10 max-w-2xl space-y-3">
+                    <span class="inline-block px-3 py-1 bg-amber-400 text-slate-900 font-bold text-xs rounded-full uppercase tracking-wider">المنهج الجديد</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight">مرحباً بك في تطبيق الكفايات اللغوية الشامل</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        منصة تفاعلية مخصصة لشرح واختبارات منهج الكفايات اللغوية للصف الأول الثانوي (نظام المسارات)، مُصممة لمساعدتك في إتقان المهارات النحوية والإملائية والقرائية والتواصلية بسهولة.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <button onclick="switchTab('lessons')" class="bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold px-5 py-2.5 rounded-xl transition shadow-lg text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book-open"></i> ابدأ المذاكرة الآن
+                        </button>
+                        <button onclick="switchTab('exam')" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-play"></i> خض الاختبار الشامل
+                        </button>
+                    </div>
+                </div>
+                <i class="fa-solid fa-square-root-variable absolute -bottom-10 -left-10 text-9xl text-white/5 pointer-events-none"></i>
+            </div>
+
+            <!-- Credits Card -->
+            <div class="bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-transparent border-r-4 border-amber-500 bg-white p-4 rounded-xl shadow-sm flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs text-slate-500 font-semibold">المؤلف والمهندس الموسوعي</h4>
+                        <p class="text-sm font-bold text-slate-800">إعداد وتصميم: <span class="text-blue-700">ناصر الصادق حسين</span></p>
+                    </div>
+                </div>
+                <span class="text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full font-medium">100% معتمد</span>
+            </div>
+
+            <!-- Module Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-3 text-lg">
+                        <i class="fa-solid fa-spell-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">الوحدة النحوية</h3>
+                    <p class="text-xs text-slate-500">الجملة الاسمية ونواسخها، وأفعال المضارع المرفوعة والمنصوبة والمجزومة.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3 text-lg">
+                        <i class="fa-solid fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">الوحدة الإملائية</h3>
+                    <p class="text-xs text-slate-500">علامات الترقيم الرئيسية وأعراف الكتابة التنظيمية الأساسية والإضافية.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-3 text-lg">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">الكفاية القرائية والتواصلية</h3>
+                    <p class="text-xs text-slate-500">خطوات القراءة المتعمقة (استطلع، أسأل، اقرأ) ومهارات الاستماع والاتصال.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LESSONS TAB -->
+        <section id="section-lessons" class="hidden space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h2 class="text-xl font-bold text-slate-800"><i class="fa-solid fa-book text-blue-600 ml-2"></i>شرح الوحدات المقررة</h2>
+                <span class="text-xs bg-blue-50 text-blue-700 font-semibold px-3 py-1 rounded-full">المفهوم والأساسيات</span>
+            </div>
+
+            <!-- Accordion Lessons -->
+            <div class="space-y-3">
+                <!-- Lesson 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion('lesson-1')" class="w-full text-right p-4 bg-slate-50/50 hover:bg-slate-100 flex justify-between items-center transition">
+                        <span class="font-bold text-slate-800"><i class="fa-solid fa-circle-dot text-blue-500 ml-2"></i>الكفاية النحوية: الجملة الاسمية ونواسخها</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+                    </button>
+                    <div id="lesson-1" class="hidden p-4 border-t border-slate-100 space-y-2 text-sm text-slate-600 bg-white">
+                        <p class="font-semibold text-blue-900">1. الجملة الاسمية تتكون من مبتدأ وخبر وكلاهما مرفوع.</p>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-slate-700 bg-slate-50 p-3 rounded-lg">
+                            <li><strong>كان وأخواتها:</strong> أفعال ناسخة تدخل على الجملة الاسمية فترفع المبتدأ ويسمى اسمها وتنصب الخبر ويسمى خبرها (مثل: كان الجوُّ جميلاً).</li>
+                            <li><strong>إن وأخواتها:</strong> حروف ناسخة تنصب المبتدأ ويسمى اسمها وتجمع وترفع الخبر ويسمى خبرها (مثل: إنّ العلمَ نورٌ).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lesson 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion('lesson-2')" class="w-full text-right p-4 bg-slate-50/50 hover:bg-slate-100 flex justify-between items-center transition">
+                        <span class="font-bold text-slate-800"><i class="fa-solid fa-circle-dot text-emerald-500 ml-2"></i>الكفاية النحوية: إعراب الفعل المضارع</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+                    </button>
+                    <div id="lesson-2" class="hidden p-4 border-t border-slate-100 space-y-2 text-sm text-slate-600 bg-white">
+                        <p class="font-semibold text-emerald-900">حالات إعراب المضارع ثلاث:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs pt-1">
+                            <div class="bg-emerald-50 p-2.5 rounded-lg">
+                                <strong class="text-emerald-800 block mb-1">الرفع:</strong>
+                                يرفع إذا لم يسبقه ناصب ولا جازم (علامة رفعه الضمة أو ثبوت النون).
+                            </div>
+                            <div class="bg-amber-50 p-2.5 rounded-lg">
+                                <strong class="text-amber-800 block mb-1">النصب:</strong>
+                                ينصب إذا سبق بأحد أدوات النصب (أن، لن، كي، إذن).
+                            </div>
+                            <div class="bg-rose-50 p-2.5 rounded-lg">
+                                <strong class="text-rose-800 block mb-1">الجزم:</strong>
+                                يجزم إذا سبق بأحد أدوات الجزم (لم، لما، لام الأمر، لا الناهية).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion('lesson-3')" class="w-full text-right p-4 bg-slate-50/50 hover:bg-slate-100 flex justify-between items-center transition">
+                        <span class="font-bold text-slate-800"><i class="fa-solid fa-circle-dot text-purple-500 ml-2"></i>الكفاية الإملائية: علامات الترقيم وأعراف الكتابة</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+                    </button>
+                    <div id="lesson-3" class="hidden p-4 border-t border-slate-100 space-y-2 text-sm text-slate-600 bg-white">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>علامات الترقيم:</strong> الفاصلة (،) للربط بين الجمل، النقطتان الرأسيتان (:) بعد القول أو القسيم، والشرطتان (--) للجملة المعترضة.</p>
+                            <p><strong>أعراف الكتابة:</strong> تشمل (العناوين الرئيسية، العناوين الجانبية، إبراز الكلمات الهامة، التعداد، والتلخيص).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion('lesson-4')" class="w-full text-right p-4 bg-slate-50/50 hover:bg-slate-100 flex justify-between items-center transition">
+                        <span class="font-bold text-slate-800"><i class="fa-solid fa-circle-dot text-indigo-500 ml-2"></i>الكفاية القرائية: القراءة المركزة للاستذكار</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+                    </button>
+                    <div id="lesson-4" class="hidden p-4 border-t border-slate-100 space-y-2 text-sm text-slate-600 bg-white">
+                        <p class="font-semibold text-indigo-900 text-xs">خطوات القراءة المتعمقة الخطوات الخمس (SQ3R):</p>
+                        <ol class="list-decimal list-inside text-xs space-y-1 bg-indigo-50 p-3 rounded-lg text-indigo-950">
+                            <li><strong>استطلع:</strong> قراءة السطور الأولى والتصفح السريع.</li>
+                            <li><strong>أسأل:</strong> تحويل العناوين إلى أسئلة.</li>
+                            <li><strong>اقرأ:</strong> قراءة البحث عن أجوبة للأسئلة.</li>
+                            <li><strong>أجب:</strong> الإجابة عن الأسئلة من الذاكرة.</li>
+                            <li><strong>راجع:</strong> التأكد من صحة الإجابات ومراجعة الكتاب.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRACTICE TAB -->
+        <section id="section-practice" class="hidden space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h2 class="text-xl font-bold text-slate-800"><i class="fa-solid fa-pen-to-square text-emerald-600 ml-2"></i>بنك الأسئلة والتدريبات الفورية</h2>
+                <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-3 py-1 rounded-full">تدريب تفاعلي</span>
+            </div>
+
+            <div id="practice-container" class="space-y-4">
+                <!-- Practice Questions injected dynamically -->
+            </div>
+        </section>
+
+        <!-- 4. EXAM TAB -->
+        <section id="section-exam" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center max-w-xl mx-auto space-y-4" id="exam-start-screen">
+                <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-800">الاختبار الشامل لمنهج الكفايات 1-1</h2>
+                    <p class="text-xs text-slate-500 mt-1">اختبار مكون من أسئلة متنوعة يقيس فهمك لكل الوحدات بدقة عالية.</p>
+                </div>
+                <button onclick="startExam()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md">
+                    ابدأ الاختبار الان
+                </button>
+            </div>
+
+            <!-- Exam Questions Screen -->
+            <div id="exam-screen" class="hidden space-y-6">
+                <!-- Exam Header Progress -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex justify-between items-center">
+                    <span id="exam-progress-text" class="text-xs font-bold text-slate-600">السؤال 1 من 5</span>
+                    <div class="w-1/2 bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div id="exam-progress-bar" class="bg-blue-600 h-full w-1/5 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Exam Question Box -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 id="exam-question-title" class="text-base font-bold text-slate-800"></h3>
+                    <div id="exam-options-container" class="space-y-2"></div>
+                </div>
+            </div>
+
+            <!-- Exam Result Screen -->
+            <div id="exam-result-screen" class="hidden bg-white p-8 rounded-2xl border border-slate-200 shadow-lg text-center max-w-md mx-auto space-y-4">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="text-2xl font-black text-slate-800">نتيجة الاختبار</h3>
+                <div class="text-4xl font-extrabold text-blue-600" id="exam-score-text">0 / 5</div>
+                <p id="exam-feedback" class="text-sm text-slate-600 font-medium"></p>
+                <button onclick="startExam()" class="bg-slate-800 text-white font-bold px-6 py-2.5 rounded-xl hover:bg-slate-700 transition text-sm">
+                    إعادة الاختبار
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Success Celebration Toast Banner -->
+    <div id="success-toast" class="fixed bottom-5 right-5 left-5 sm:left-auto sm:w-96 bg-emerald-600 text-white p-4 rounded-2xl shadow-2xl flex items-center space-x-3 space-x-reverse transform translate-y-32 transition-transform duration-300 z-50">
+        <div class="bg-white/20 p-2 rounded-xl">
+            <i class="fa-solid fa-circle-check text-2xl text-emerald-200"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-sm" id="toast-title">إجابة صحيحة! 🎉</h4>
+            <p class="text-xs text-emerald-100" id="toast-message">أحسنت يا بطل، واصل التألق!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 mt-12 text-center text-xs">
+        <div class="max-w-5xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-slate-200 text-sm">تطبيق الكفايات اللغوية (1-1) - أول ثانوي</p>
+            <p>جميع الحقوق محفوظة &copy; 2026 | إعداد وتصميم: <strong class="text-amber-400">ناصر الصادق حسين</strong></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Data Questions Bank (Curriculum 1-1 First Secondary)
+        const practiceData = [
+            {
+                question: "ما الأثر الإعرابي لدخول (كان) على الجملة الاسمية؟",
+                options: ["ترفع المبتدأ وتنصب الخبر", "تنصب المبتدأ وترفع الخبر", "تنصب المبتدأ والخبر معاً"],
+                correct: 0,
+                explanation: "كان وأخواتها أفعال ناسخة ترفع المبتدأ ويسمى اسمها، وتنصب الخبر ويسمى خبرها."
+            },
+            {
+                question: "أي من الأدوات التالية تعتبر من أدوات جزم الفعل المضارع؟",
+                options: ["أنْ", "لَنْ", "لَمْ"],
+                correct: 2,
+                explanation: "(لم) حرف جزم ونفي وقلب تجزم الفعل المضارع، بينما (أن، لن) من أدوات النصب."
+            },
+            {
+                question: "علامة الترقيم التي توضع بين الجمل المعطوفة والمستقلة هي:",
+                options: ["الشرطتان (--)", "الفاصلة (،)", "النقطتان (:)"],
+                correct: 1,
+                explanation: "تستخدم الفاصلة للربط والفرصل بين الجمل القصيرة والمعطوفة."
+            },
+            {
+                question: "الخطوة الأولى من خطوات القراءة المتعمقة (SQ3R) هي:",
+                options: ["أسأل", "اقرأ", "استطلع"],
+                correct: 2,
+                explanation: "خطوات القراءة الخمس تبدأ بـ (استطلع) ثم أسأل، اقرأ، أجب، وراجع."
+            }
+        ];
+
+        const examQuestions = [
+            {
+                question: "عند دخول (إنّ) على جملة (الطالبُ مجتهدٌ) تصبح:",
+                options: ["إنَّ الطالبُ مجتهداً", "إنَّ الطالبَ مجتهدٌ", "إنَّ الطالبُ مجتهدٌ"],
+                correct: 1
+            },
+            {
+                question: "الفعل المضارع في جملة (يسعى المسلمُ في الخير) يكون:",
+                options: ["مرفوعاً بالضمة المقدرة", "منصوباً بالفتحة الظاهرة", "مجزوماً بحذف حرف العلة"],
+                correct: 0
+            },
+            {
+                question: "توضع النقطتان الرأسيتان (:) في أي المواضع التالية؟",
+                options: ["في نهاية الفقرة", "بعد القول أو الشيء وأقسامه", "بين الجملتين المترابطتين"],
+                correct: 1
+            },
+            {
+                question: "أي مما يلي يعتبر من أعراف الكتابة الأساسية؟",
+                options: ["العناوين الرئيسية والجانبية", "التظليل والتلوين فقط", "وضع الغلاف الخارجي"],
+                correct: 0
+            },
+            {
+                question: "الهدف الرئيسي من مرحلة (أجب) في القراءة المتعمقة هو:",
+                options: ["تصفح الفهرس", "إجابة الأسئلة من الذاكرة لترسيخ الفهم", "قراءة الكتاب جهرةً"],
+                correct: 1
+            }
+        ];
+
+        // Functions for Tab Navigation
+        function switchTab(tabName) {
+            ['home', 'lessons', 'practice', 'exam'].forEach(tab => {
+                document.getElementById(`section-${tab}`).classList.add('hidden');
+                document.getElementById(`tab-${tab}`).classList.remove('tab-active');
+            });
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.add('tab-active');
+        }
+
+        // Accordion Toggle
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+
+        // Render Practice Questions
+        function renderPractice() {
+            const container = document.getElementById('practice-container');
+            container.innerHTML = '';
+
+            practiceData.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3";
+                
+                let optionsHtml = '';
+                q.options.forEach((opt, oIdx) => {
+                    optionsHtml += `
+                        <button onclick="checkPractice(${idx}, ${oIdx})" id="practice-opt-${idx}-${oIdx}" class="w-full text-right p-3 rounded-xl border border-slate-200 hover:bg-slate-50 transition text-xs sm:text-sm font-medium flex items-center justify-between">
+                            <span>${opt}</span>
+                            <i class="fa-regular fa-circle text-slate-300"></i>
+                        </button>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <h4 class="font-bold text-slate-800 text-sm sm:text-base">${idx + 1}. ${q.question}</h4>
+                    <div class="space-y-2">${optionsHtml}</div>
+                    <div id="practice-exp-${idx}" class="hidden p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 mt-2"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Check Practice Answer
+        function checkPractice(qIdx, selectedOpt) {
+            const q = practiceData[qIdx];
+            const expEl = document.getElementById(`practice-exp-${qIdx}`);
+
+            for (let i = 0; i < q.options.length; i++) {
+                const btn = document.getElementById(`practice-opt-${qIdx}-${i}`);
+                btn.disabled = true;
+                if (i === q.correct) {
+                    btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800');
+                } else if (i === selectedOpt) {
+                    btn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-800');
+                }
+            }
+
+            expEl.classList.remove('hidden');
+            if (selectedOpt === q.correct) {
+                expEl.innerHTML = `<span class="text-emerald-700 font-bold block mb-0.5">إجابة صحيحة ممتاز! 👏</span> ${q.explanation}`;
+                triggerFireworks();
+                showSuccessToast('أحسنت يا ناصر!', 'إجابتك صحيحة ودقيقة جداً 👍');
+            } else {
+                expEl.innerHTML = `<span class="text-rose-600 font-bold block mb-0.5">إجابة خاطئة!</span> ${q.explanation}`;
+            }
+        }
+
+        // Exam State Variables
+        let currentExamIdx = 0;
+        let examScore = 0;
+
+        function startExam() {
+            currentExamIdx = 0;
+            examScore = 0;
+            document.getElementById('exam-start-screen').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('exam-screen').classList.remove('hidden');
+            showExamQuestion();
+        }
+
+        function showExamQuestion() {
+            const q = examQuestions[currentExamIdx];
+            document.getElementById('exam-question-title').innerText = `${currentExamIdx + 1}. ${q.question}`;
+            document.getElementById('exam-progress-text').innerText = `السؤال ${currentExamIdx + 1} من ${examQuestions.length}`;
+            document.getElementById('exam-progress-bar').style.width = `${((currentExamIdx + 1) / examQuestions.length) * 100}%`;
+
+            const container = document.getElementById('exam-options-container');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-right p-3.5 rounded-xl border border-slate-200 hover:bg-blue-50 hover:border-blue-300 transition text-sm font-medium";
+                btn.innerText = opt;
+                btn.onclick = () => handleExamAnswer(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function handleExamAnswer(selectedOpt) {
+            if (selectedOpt === examQuestions[currentExamIdx].correct) {
+                examScore++;
+                triggerFireworks();
+            }
+
+            currentExamIdx++;
+            if (currentExamIdx < examQuestions.length) {
+                showExamQuestion();
+            } else {
+                finishExam();
+            }
+        }
+
+        function finishExam() {
+            document.getElementById('exam-screen').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            document.getElementById('exam-score-text').innerText = `${examScore} / ${examQuestions.length}`;
+
+            const feedback = document.getElementById('exam-feedback');
+            if (examScore === examQuestions.length) {
+                feedback.innerText = "ما شاء الله! درجة كاملة وأداء استثنائي رائع 🎉";
+                triggerFireworks();
+            } else if (examScore >= 3) {
+                feedback.innerText = "أداء ممتاز جداً! واصل المراجعة لتقوية حصيلتك ✨";
+            } else {
+                feedback.innerText = "حاول مرة أخرى واقرأ الشروحات بعناية للوصول للدرجة الكاملة 👍";
+            }
+        }
+
+        // Trigger Fireworks / Confetti
+        function triggerFireworks() {
+            confetti({
+                particleCount: 70,
+                spread: 60,
+                origin: { y: 0.7 }
+            });
+        }
+
+        // Show Toast Notification
+        function showSuccessToast(title, message) {
+            const toast = document.getElementById('success-toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+
+            toast.classList.remove('translate-y-32');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32');
+            }, 3000);
+        }
+
+        // Initialize App
+        window.onload = () => {
+            renderPractice();
+        };
+    </script>
+</body>
+</html>
